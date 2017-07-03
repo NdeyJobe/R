@@ -1,0 +1,66 @@
+http://blog.revolutionanalytics.com/2015/09/using-r-with-jupyter-notebooks.html
+
+# iris is available from the datasets package
+
+# Reveal number of observations and variables in two different ways
+str(iris)
+dim(iris)
+
+# Show first and last observations in the iris data set
+head(iris)
+tail(iris)
+
+# Summarize the iris data set
+summary(iris)
+
+# The Wage dataset is available
+
+# Build Linear Model: lm_wage (coded already)
+lm_wage <- lm(wage ~ age, data = Wage)
+
+# Define data.frame: unseen (coded already)
+unseen <- data.frame(age = 60)
+
+# Predict the wage for a 60-year old worker
+predict(lm_wage, unseen)
+
+# The emails dataset is already loaded into your workspace
+
+# Show the dimensions of emails
+dim(emails)
+
+# Inspect definition of spam_classifier()
+spam_classifier <- function(x){
+  prediction <- rep(NA, length(x)) # initialize prediction vector
+  prediction[x > 4] <- 1
+  prediction[x >= 3 & x <= 4] <- 0
+  prediction[x >= 2.2 & x < 3] <- 1
+  prediction[x >= 1.4 & x < 2.2] <- 0
+  prediction[x > 1.25 & x < 1.4] <- 1
+  prediction[x <= 1.25] <- 0
+  return(prediction) # prediction is either 0 or 1
+}
+
+# Apply the classifier to the avg_capital_seq column: spam_pred
+spam_pred <- spam_classifier(emails$avg_capital_seq)
+
+# Compare spam_pred to emails$spam. Use ==
+spam_pred == emails$spam
+
+# linkedin is already available in your workspace
+
+# Create the days vector
+
+days <- c(1:21)
+# Fit a linear model called on the linkedin views per day: linkedin_lm
+linkedin_lm <- lm(linkedin ~ days)
+
+# Predict the number of views for the next three days: linkedin_pred
+future_days <- data.frame(days = 22:24)
+linkedin_pred <- predict(linkedin_lm, future_days)
+
+# Plot historical data and predictions
+plot(linkedin ~ days, xlim = c(1, 24))
+points(22:24, linkedin_pred, col = "green")
+
+https://campus.datacamp.com/courses/introduction-to-machine-learning-with-r/chapter-1-what-is-machine-learning?ex=10
