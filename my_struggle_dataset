@@ -153,7 +153,7 @@ plot(data_ctree5)
 testpred5 <- predict(data_ctree5, newdata= test.data)
 table(testpred5, test.data$Scale_ID)
 
-#Karolinska Hospital
+#Karolinska Hospital (Karolinska sjukhuset)
 myf6 <- Scale_ID ~ X36 + X37 + X42 + X59 + X72 + X74 + X80 + X82 + X84 +X88 +X94
 data_ctree6 <- ctree(myf6, data = train.data)
 table(predict(data_ctree6), train.data$Scale_ID)
@@ -161,7 +161,7 @@ plot(data_ctree6)
 testpred6 <- predict(data_ctree6, newdata= test.data)
 table(testpred6, test.data$Scale_ID)
 
-#Star Kitchen
+#Star Kitchen (Stjärnköket)
 myf7 <- Scale_ID ~ X44 + X47 + X49 + X51 + X54 +X56 + X60 + X63 + X64 + X65 + X66 + X68 + X69 + X71 + X76 + X77 + X78 + X79 + X83 + X91 + X93 + X101 + X102 + X111 + X113 + X118 + X161
 data_ctree7 <- ctree(myf7, data = train.data)
 table(predict(data_ctree7), train.data$Scale_ID)
@@ -169,7 +169,7 @@ plot(data_ctree7)
 testpred7 <- predict(data_ctree7, newdata= test.data)
 table(testpred7, test.data$Scale_ID)
 
-#Sodertalje Hospital
+#Sodertalje Hospital (Södertälje Sjukhus)
 myf8 <- Scale_ID ~ X53 + X96 + X97 + X98 + X103 + X106 + X107 + X114 + X121 
 data_ctree8 <- ctree(myf8, data = train.data)
 table(predict(data_ctree8), train.data$Scale_ID)
